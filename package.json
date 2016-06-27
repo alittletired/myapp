@@ -1,0 +1,42 @@
+{
+  "name": "myapp",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "android": "node node_modules/react-native/local-cli/cli.js run-android",
+    "ios": "node node_modules/react-native/local-cli/cli.js run-ios",
+    "log": "adb logcat *:S ReactNative:V ReactNativeJS:V",
+    "build-ios": "react-native unbundle --entry-file index.ios.js --platform ios --dev false",
+    "build-android": "cd android && ./gradlew assembleRelease && open app/build/outputs/apk && cd ..",
+    "checkversion": "node node_modules/fbjs-scripts/node/check-dev-engines.js package.json",
+    "postinstall": "npm run checkversion",
+    "push-android": "code-push release-react Noder android --deploymentName Staging",
+    "push-ios": "code-push release-react Noder ios --deploymentName Staging",
+    "push-android-prod": "code-push release-react Noder android --deploymentName Production",
+    "push-ios-prod": "code-push release-react Noder ios --deploymentName Production",
+    "push-key": "code-push deployment ls Noder -k"
+  },
+  "dependencies": {
+    "immutable": "^3.8.1",
+    "moment": "^2.13.0",
+    "react": "15.1.0",
+    "react-native": "0.28.0",
+    "react-native-camera": "git+https://github.com/lwansbrough/react-native-camera.git",
+    "react-native-code-push": "^1.12.2-beta",
+    "react-native-image-picker": "^0.19.7",
+    "react-native-linear-gradient": "^1.5.12",
+    "react-native-push-notification": "^1.1.1",
+    "react-native-scrollable-tab-view": "^0.5.1",
+    "react-native-send-intent": "^1.0.11",
+    "react-native-share": "^1.0.11",
+    "react-native-vector-icons": "^2.0.3",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2",
+    "redux-actions": "^0.10.0",
+    "redux-logger": "^2.6.1",
+    "redux-promise": "^0.5.3",
+    "redux-thunk": "^2.1.0",
+    "reselect": "^2.5.1"
+  }
+}
