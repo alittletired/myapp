@@ -20,19 +20,20 @@ class App extends React.Component {
         };
     }
     render() {
-
+        
         return (
             <Provider store={this.state.store}>
               <View style={styles.container}>
                 <Text style={styles.welcome}>
-                  Welcome!!! to React Native!
+                        Welcome everybodyad to React Native!
+
                 </Text>
                 <Text style={styles.instructions}>
                   To get started, edit index.ios.js
                 </Text>
                 <Text style={styles.instructions}>
                   Press Cmd+R to reload, {'\n'}
-                  shake for de11111vas menu
+                  shake for devas menu
 		</Text>
                 </View>
             </Provider>

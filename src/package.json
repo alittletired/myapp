@@ -15,7 +15,8 @@
     "push-ios": "code-push release-react Noder ios --deploymentName Staging",
     "push-android-prod": "code-push release-react Noder android --deploymentName Production",
     "push-ios-prod": "code-push release-react Noder ios --deploymentName Production",
-    "push-key": "code-push deployment ls Noder -k"
+    "push-key": "code-push deployment ls Noder -k",
+    "m": "emulator -avd e1"
   },
     "devEngines": {
     "node": ">= 6.x",
