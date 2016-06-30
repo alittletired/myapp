@@ -1,12 +1,7 @@
 import { combineReducers } from 'redux';
-import quality from './quality';
-import problem from './problem';
-import message from './message';
-import more from './more';
+import home from './home';
+
 
 export default combineReducers({
-	quality,
-	problem,
-	message,
-	more
+    home
 });

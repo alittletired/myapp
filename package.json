@@ -17,6 +17,10 @@
     "push-ios-prod": "code-push release-react Noder ios --deploymentName Production",
     "push-key": "code-push deployment ls Noder -k"
   },
+    "devEngines": {
+    "node": ">= 6.x",
+    "npm": ">= 3.x"
+  },
   "dependencies": {
     "immutable": "^3.8.1",
     "moment": "^2.13.0",

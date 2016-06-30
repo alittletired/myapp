@@ -40,7 +40,8 @@ class Router {
 		route.props = props;
 		route.index = nextIndex;
 		route.sceneConfig = route.sceneConfig ? route.sceneConfig : CustomSceneConfigs.customFloatFromRight;
-		route.id = _.uniqueId();
+        route.id = _.uniqueId();
+       
 		route.component = connectComponent(route.component);
 		this.navigator.push(route);
 	}

@@ -4,7 +4,14 @@ import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 import reducers from '../reducers';
 
-/*
+import promiseMiddleware from './promiseMiddleware';
+import asyncActionCallbackMiddleware from './asyncActionCallbackMiddleware';
+
+let middlewares = [
+    thunkMiddleware,
+    promiseMiddleware,
+    asyncActionCallbackMiddleware
+];
 const isDebuggingInChrome = __DEV__ && !!window.navigator.userAgent;
 const logger = createLogger({
 	predicate: (getState, action) => isDebuggingInChrome,
@@ -13,28 +20,18 @@ const logger = createLogger({
 });
 
 if (isDebuggingInChrome) {
-	// middlewares.push(logger);
+	 middlewares.push(logger);
 }
-*/
-let middlewares = [
-	thunkMiddleware
 
-];
+
 export default function configureStore(initialState) {
-	const store = applyMiddleware(
-		...middlewares
-	)(createStore)(reducers, initialState);
+    const store = applyMiddleware(
+        logger
+    )(createStore)(reducers, initialState);
 
-	if (module.hot) {
-		module.hot.accept(() => {
-			const nextRootReducer = require('../reducers/index').default;
-			store.replaceReducer(nextRootReducer);
-		});
-	}
-	/*
-	if (isDebuggingInChrome) {
-		window.store = store;
-	}
-*/
-	return store;
+    if (isDebuggingInChrome) {
+        window.store = store;
+    }
+
+    return store;
 }

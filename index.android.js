@@ -1,13 +1,7 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
 
 
- import React from 'react';
- import {AppRegistry} from 'react-native';
+import React from 'react';
+import {AppRegistry} from 'react-native';
+import app  from './js/app';
 
- const setup = require('./js');
-
- AppRegistry.registerComponent('Myapp', setup);
+AppRegistry.registerComponent('myapp',()=> app);

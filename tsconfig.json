@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
     "allowJs": true,
-    "outDir": "out",
-    "jsx": "react"
+    "jsx": "react",
+    "module": "es2015",
+    "target": "es2015",
+    "outDir": "out"
   },
   "exclude": [
     "node_modules",
