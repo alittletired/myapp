@@ -37,16 +37,19 @@
     <Content Include="index.android.js" />
     <Content Include="index.ios.js" />
     <Content Include="js\actions\index.js" />
-    <Content Include="js\actions\message.js" />
     <Content Include="js\actions\user.js" />
-    <Content Include="js\actions\more.js" />
     <Content Include="js\actions\navigation.js" />
     <Content Include="js\actions\problem.js" />
-    <Content Include="js\actions\quality.js" />
     <Content Include="js\actions\types.js" />
+    <Content Include="js\components\Navigation.js" />
+    <Content Include="js\components\ProblemList.js" />
+    <Content Include="js\components\TabBar.js" />
+    <Content Include="js\layouts\ListData.js" />
     <Content Include="js\layouts\LoginScreen.js" />
+    <Content Include="js\layouts\Problem.js" />
+    <Content Include="js\layouts\ProblemDetials.js" />
+    <Content Include="js\layouts\Setting.js" />
     <Content Include="js\MyApp.js" />
-    <Content Include="js\components\configureStore.js" />
     <Content Include="js\configs\index.js" />
     <Content Include="js\layouts\Router.js" />
     <Content Include="js\configs\sceneConfig.js" />
@@ -57,10 +60,7 @@
     <Content Include="js\layouts\Navigation.js" />
     <Content Include="js\reducers\home.js" />
     <Content Include="js\reducers\index.js" />
-    <Content Include="js\reducers\message.js" />
-    <Content Include="js\reducers\more.js" />
     <Content Include="js\reducers\problem.js" />
-    <Content Include="js\reducers\quality.js" />
     <Content Include="js\reducers\user.js" />
     <Content Include="js\services\requestService.js" />
     <Content Include="js\services\userService.js" />
@@ -76,6 +76,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="tsconfig.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="js\components\base\" />
+    <Folder Include="js\images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
