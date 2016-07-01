@@ -86,17 +86,13 @@ export class LoginScreen extends React.Component {
       const {router, actions} = this.props;
       actions.userLogin({ username, password }, (data) => {
           alert('登陆成功');
-          router.pop();
+        //  router.pop();
           return data;
       });
       //router.pop();
   }
   render() {
-      if (this.props.isLoggedIn) {
-          alert('登陆成功');
-          this.router.pop();
-        //  return (null);
-      }
+      
     return (
       <View style={[styles.container]}>        
         <View style={[styles.formcontainer, {marginBottom: this.state.keyboardSpace}]}>
