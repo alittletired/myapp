@@ -93,8 +93,14 @@ export class LoginScreen extends React.Component {
   }
   render() {
       
-    return (
-      <View style={[styles.container]}>        
+      return (
+          <Image
+              source={ require("../img/login_bg.jpg") }
+              style={styles.container}            
+              onLoadEnd={this.imageLoaded.bind(this) }
+              >
+            
+         
         <View style={[styles.formcontainer, {marginBottom: this.state.keyboardSpace}]}>
           <View style={styles.loginform}>
           
@@ -122,17 +128,20 @@ export class LoginScreen extends React.Component {
               </View>
             </TouchableHighlight>
         </Modal>
-      </View>
+     
+          </Image>
     );
   }
 
 }
 
 var styles = StyleSheet.create({
+   
 	container: {
     flex: 1,    
     justifyContent: 'center',
-    alignItems: 'stretch'    
+    alignItems: 'stretch',  
+    backgroundColor: 'transparent',  
   },  
   modalBackground: {
     backgroundColor: 'rgba(0, 0, 0, 0.5)',

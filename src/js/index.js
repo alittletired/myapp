@@ -4,7 +4,7 @@ import configureStore from './store/configureStore';
 import Navigation from './layouts/Navigation';
 
 
-const store = configureStore();
+
 
 
 class Myapp extends Component {
