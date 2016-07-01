@@ -6,25 +6,24 @@ import {
     Text,
     View
 } from 'react-native';
-
+import Icon from 'react-native-vector-icons/Ionicons';
 class Home extends Component {
    
 
     render() {
         
         return (
-            <View style={styles.container}>
-                <Text style={styles.welcome}>
-                    Welcome to React Native!
-                </Text>
-                <Text style={styles.instructions}>
-                    To get started, edit index.ios.js
-                </Text>
-                <Text style={styles.instructions}>
-                    Press Cmd+R to reload, {'\n'}
-                    Cmd+D or shake for dev menu
-                </Text>
-            </View>
+            <Icon.ToolbarAndroid
+                title="首页"
+                titleColor="white"
+                navIconName="md-arrow-back"
+                onIconClicked={() => { return true; }}
+                actions={[
+                    { title: 'Settings', iconName: 'md-settings', iconSize: 30, show: 'always' },
+                    { title: 'Follow me on Twitter', iconName: 'logo-twitter', iconColor: "#4099FF", show: 'ifRoom' },
+                ]}
+                overflowIconName="md-more"
+                />
         );
     }
 }

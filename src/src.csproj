@@ -41,10 +41,14 @@
     <Content Include="js\actions\navigation.js" />
     <Content Include="js\actions\problem.js" />
     <Content Include="js\actions\types.js" />
+
     <Content Include="js\components\Navigation.js" />
     <Content Include="js\components\ProblemList.js" />
     <Content Include="js\components\TabBar.js" />
     <Content Include="js\layouts\ListData.js" />
+
+    <Content Include="images\login_bg.jpg" />
+
     <Content Include="js\layouts\LoginScreen.js" />
     <Content Include="js\layouts\Problem.js" />
     <Content Include="js\layouts\ProblemDetials.js" />
