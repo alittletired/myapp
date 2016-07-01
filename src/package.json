@@ -18,13 +18,14 @@
     "push-key": "code-push deployment ls Noder -k",
     "m": "emulator -avd e1"
   },
-    "devEngines": {
+  "devEngines": {
     "node": ">= 6.x",
     "npm": ">= 3.x"
   },
   "dependencies": {
     "immutable": "^3.8.1",
     "moment": "^2.13.0",
+    "query-string": "^4.2.2",
     "react": "15.1.0",
     "react-native": "0.28.0",
     "react-native-camera": "git+https://github.com/lwansbrough/react-native-camera.git",
@@ -40,6 +41,7 @@
     "redux": "^3.5.2",
     "redux-actions": "^0.10.0",
     "redux-logger": "^2.6.1",
+    "redux-persist": "^3.2.2",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.1.0",
     "reselect": "^2.5.1"

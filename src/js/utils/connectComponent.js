@@ -8,7 +8,8 @@ const options = {
 };
 
 
-export default function connectComponent({ mapStateToProps, mapDispatchToProps, mergeProps, LayoutComponent }) {
+export default function connectComponent(component) {
+    let { mapStateToProps, mapDispatchToProps, mergeProps, LayoutComponent } = component
 	return connect(
 		mapStateToProps || function (state) {
 			return {};

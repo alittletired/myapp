@@ -1,12 +1,5 @@
-import * as quality from './quality';
-import * as problem from './problem';
-import * as message from './message';
-import * as more from './more';
+import * as user from './user';
+import * as navigation from './navigation';
 
-
-export default {
-	...quality,
-	...problem,
-	...message,
-	...more
-};
+export  default
+    {...user,...navigation};

@@ -3,6 +3,6 @@
 
 import React from 'react';
 import {AppRegistry} from 'react-native';
-import app  from './js/app';
+import app  from './js/setup';
 
 AppRegistry.registerComponent('myapp',()=> app);

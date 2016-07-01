@@ -1,22 +1,29 @@
 import React, {Component, PropTypes} from 'react';
 import {Navigator, StyleSheet, View, Text, Image, Dimensions} from 'react-native';
-import * as Quality from './Quality';
-import Router from '../configs/Router';
+
+import Router from './Router';
 import connectComponent from '../utils/connectComponent';
 import config from '../configs';
 
-const Utils = connectComponent(Quality);
+
+import * as HomeComponent from './Home';
+
 
 const { height, width } = Dimensions.get('window');
+
+import * as LoginScreen   from './LoginScreen';
+connectComponent(LoginScreen)
+
+
 const initialRoute = {
-	name: 'Quality',
+	name: 'Home',
 	index: 0,
-	component: connectComponent(Quality),
+    component: connectComponent(HomeComponent),
 	id: 0
 };
 
 
-class Navigation extends Component {
+export class Navigation extends Component {
 	constructor(props) {
 		super(props);
 		this.ids = [];
@@ -24,52 +31,50 @@ class Navigation extends Component {
 
   /*页面插入真实dom之后*/
 	componentDidMount() {
-		this.navigator.navigationContext.addListener('didfocus', e => {
-			const { index, id } = e.data.route;
-			const haveFocused = this.ids.indexOf(id) > -1;
-			this[index] && this[index] && this[index].getWrappedInstance().componentDidFocus && this[index].getWrappedInstance().componentDidFocus(haveFocused);
-			!haveFocused && this.ids.push(id);
-		});
+        this.navigator.navigationContext.addListener('didfocus', e => {
+            const { index, id } = e.data.route;
+            const haveFocused = this.ids.indexOf(id) > -1;
+            this[index] && this[index] && this[index].getWrappedInstance().componentDidFocus && this[index].getWrappedInstance().componentDidFocus(haveFocused);
+            !haveFocused && this.ids.push(id);
+        });
 	}
 
 
-	renderScene({ component, name, props, id, index }, navigator) {
-		this.router = this.router || new Router(navigator);
-		if (component) {
-			return React.createElement(component, {
-				...props,
-				ref: view => this[index] = view,
-				router: this.router,
-				route: {
-					name,
-					id,
-					index
-				}
-			});
-		}
-	}
+    renderScene({ component, name, props, id, index }, navigator) {
+       this.router = this.router || new Router(navigator);
+       
+        if (component) {
+            let prop = Object.assign({}, props, {
+                ref: view => this[index] = view,
+                router: this.router,
+                route: { name, id, index }
+            });
+            return React.createElement(component, prop);
+        }
+    }
 
 
-	configureScene(route) {
-		if (route.sceneConfig) {
-			return route.sceneConfig
-		}
-		return Navigator.SceneConfigs.FloatFromRight
-	}
+    configureScene(route) {
+        if (route.sceneConfig) {
+            return route.sceneConfig
+        }
+        return Navigator.SceneConfigs.FloatFromRight
+    }
 
 
-	render() {
-		return (
-			<Image
-				source={{ uri: config.bgImgUri }}
+    render() {
+       
+        return (
+            
+            <View				
 				style={styles.bg}>
 				<Navigator
-					ref={view => this.navigator=view}
+                    ref={view => this.navigator = view}
 					initialRoute={initialRoute}
 					configureScene={this.configureScene.bind(this)}
-					renderScene={this.renderScene.bind(this)}/>
-				<Utils/>
-			</Image>
+					renderScene={this.renderScene.bind(this)} />
+			
+            </View>
 		)
 	}
 }
@@ -93,4 +98,5 @@ const styles = StyleSheet.create({
 });
 
 
-export default Navigation;
+
+export default Navigation

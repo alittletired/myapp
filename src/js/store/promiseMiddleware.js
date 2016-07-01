@@ -2,7 +2,7 @@ import { isFSA } from 'flux-standard-action';
 import _ from 'lodash';
 
 function isPromise(val) {
-	return val && typeof val.then === 'function';
+    return val && typeof val.then === 'function';
 }
 
 export default function promiseMiddleware({ dispatch }) {
@@ -17,25 +17,45 @@ export default function promiseMiddleware({ dispatch }) {
         const id = _.uniqueId();
 
         if (isPromise(payload)) {
-            let sequence = { type: 'start', id };
-            let newMeta = Object.assign({}, meta, { sequence })
-            dispatch(Object.assign(action, { payload: undefined, meta: newMeta }));
-
-
-            return payload.then(
-                result => {
-                    let sequence = { type: 'next', id };
-                    let newMeta = Object.assign({}, meta, { sequence })
-                    dispatch(Object.assign(action, { payload: result, meta: newMeta }));
-                },
-                error => {
-                    let sequence = { type: 'next', id };
-                    let newMeta = Object.assign({}, meta, { sequence })
-                    dispatch(Object.assign(action, { payload: error, meta: newMeta }));
+            dispatch({
+				...action,
+                payload: undefined,
+                meta: {
+					...meta,
+                sequence: {
+                    type: 'start',
+                    id
                 }
-            );
-        }
+				}
+    });
 
-        return next(action);
-    };
+    return payload.then(
+        result => dispatch({
+					...action,
+            payload: result,
+            meta: {
+						...meta,
+            sequence: {
+                type: 'next',
+                id
+            }
+					}
+				}),
+error => dispatch({
+					...action,
+    payload: error,
+    error: true,
+    meta: {
+						...meta,
+    sequence: {
+        type: 'next',
+        id
+    }
+					}
+				})
+			);
+		}
+
+return next(action);
+	};
 }
