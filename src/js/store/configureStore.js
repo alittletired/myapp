@@ -27,9 +27,9 @@ if (isDebuggingInChrome) {
 var createMyStore = applyMiddleware(thunkMiddleware, promiseMiddleware, asyncActionCallbackMiddleware, logger)(createStore);
 export default function configureStore(onComplete) {
    
-   // const store = autoRehydrate()(createMyStore)(reducers);
-   // persistStore(store, { storage: AsyncStorage }, onComplete);
-   // store = createMyStore(reducers);
+    const store = autoRehydrate()(createMyStore)(reducers);
+    persistStore(store, { storage: AsyncStorage }, onComplete);
+  // store = createMyStore(reducers);
     if (isDebuggingInChrome) {
         window.store = store;
     }

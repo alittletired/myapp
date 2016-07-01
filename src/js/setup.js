@@ -1,6 +1,6 @@
 ﻿
 'use strict';
-import {AppRegistry, Navigator, StyleSheet, Text, View} from 'react-native'
+import {AppRegistry, Navigator, StyleSheet, Text, View ,Image } from 'react-native'
 import React from 'react';
 
 import { Provider } from 'react-redux';

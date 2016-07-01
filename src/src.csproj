@@ -44,6 +44,7 @@
     <Content Include="js\actions\problem.js" />
     <Content Include="js\actions\quality.js" />
     <Content Include="js\actions\types.js" />
+    <Content Include="images\login_bg.jpg" />
     <Content Include="js\layouts\LoginScreen.js" />
     <Content Include="js\MyApp.js" />
     <Content Include="js\components\configureStore.js" />

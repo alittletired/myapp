@@ -93,14 +93,9 @@ export class LoginScreen extends React.Component {
   }
   render() {
       
-      return (
-          <Image
-              source={ require("../img/login_bg.jpg") }
-              style={styles.container}            
-              onLoadEnd={this.imageLoaded.bind(this) }
-              >
-            
-         
+    return (
+        <View style={[styles.container]}>  
+            <Image  style={styles.content}   source={require('./img/login_bg.jpg') }>   
         <View style={[styles.formcontainer, {marginBottom: this.state.keyboardSpace}]}>
           <View style={styles.loginform}>
           
@@ -119,40 +114,33 @@ export class LoginScreen extends React.Component {
             
           </View>            
         </View>
-        <Modal  transparent={true} visible={this.state.isModalOpen} onRequestClose={() => { }}>
-            <TouchableHighlight onPress={(e) => this.closeModal(e)} style={styles.container}>
-              <View style={[styles.container, styles.modalBackground]}>
-                <View style={[styles.innerContainer, styles.innerContainerTransparent]}>
-                  <Text>{this.state.modalText}</Text>
-                </View>
-              </View>
-            </TouchableHighlight>
-        </Modal>
-     
-          </Image>
+      </Image>
+      </View>
     );
   }
 
 }
 
 var styles = StyleSheet.create({
-   
 	container: {
     flex: 1,    
     justifyContent: 'center',
-    alignItems: 'stretch',  
-    backgroundColor: 'transparent',  
+    alignItems: 'stretch'    
   },  
-  modalBackground: {
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    padding: 20
-  },
+ 
   innerContainer: {
     borderRadius: 10,
   },
-  innerContainerTransparent: {
-    backgroundColor: '#fff', 
-    padding: 20
+  content: {
+      flex: 1,
+      padding: 30,
+      backgroundColor: 'transparent',
+      borderRadius: 3,
+      alignItems: 'center',
+      // Image's source contains explicit size, but we want
+      // it to prefer flex: 1
+      width: undefined,
+      height: undefined,
   },
   formcontainer: {
   },
@@ -173,18 +161,8 @@ var styles = StyleSheet.create({
 		height: 40, 
 		borderColor: 'gray', 
 		borderWidth: 0.5
-	},
-  loginbutton: {
-    backgroundColor: '#23a9e2',
-    color: '#FFFFFF',
-    paddingVertical: 10,
-    borderRadius: 4,
-     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-   
-
-  }
+	}
+  
 });
 
 
