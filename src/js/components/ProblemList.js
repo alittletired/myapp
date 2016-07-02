@@ -3,7 +3,7 @@ import {View, StyleSheet, Text, Image, ListView, TouchableHighlight, Dimensions,
 import moment from 'moment';
 import {parseImgUrl} from '../utils';
 
-import {Scene, Router, TabBar, Modal, Schema, Actions, Reducer} from 'react-native-router-flux'
+
 const {height, width} = Dimensions.get('window');
 
 
@@ -54,10 +54,6 @@ class ProblemList extends Component {
        
     }
 
-    _onRowPress(problem) {
-      //  Actions.
-       
-	}
 
 
 	_renderRowFooter(problem) {
@@ -80,7 +76,7 @@ class ProblemList extends Component {
 	_renderRow(problem) {
 		return (
 			<TouchableHighlight
-                onPress={() => { this._onRowPress(problem)}}
+                onPress={() => { this.props.onItemPress(problem)}}
 				underlayColor='#3498DB'
 				key={problem.id}
 			>

@@ -4,6 +4,8 @@ import {View, StyleSheet, Text, ListView, Dimensions, RefreshControl, Image } fr
 import Button from 'react-native-button';
 import Modal from 'react-native-modalbox';
 const {height, width} = Dimensions.get('window');
+import * as temp from './ListData0'
+
 
 class ProblemDetials extends Component {
     constructor(props) {
@@ -33,7 +35,7 @@ class ProblemDetials extends Component {
      *resizeMode enum('cover', 'contain', 'stretch')
      */
     render() {
-
+        const problem = temp['data1'][0];
         this.props = Object.assign({}, this.props, {
             problem: problem,
             modalShow: false,

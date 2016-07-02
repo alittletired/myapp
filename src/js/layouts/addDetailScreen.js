@@ -15,9 +15,9 @@ import {
 } from 'react-native';
 import Button from 'react-native-button';
 var { connect } = require('react-redux');
-import  Lightbox  from 'react-native-lightbox';
-import  addDetail  from '../actions/addDetail.js';
-import Carousel from 'react-native-looped-carousel';
+
+
+
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Modal  from 'react-native-modalbox';
 const IMAG_PRE_ROW=3;
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
 });
 import ImagePicker from 'react-native-image-picker';
 
-  class addDetailScreen extends React.Component {
+  export class addDetailScreen extends React.Component {
 
   constructor(props) {
     super(props);
@@ -218,19 +218,7 @@ this.setState({
   }
 
 
-    renderCarousel() {
-      return (
-        <Carousel style={{ width: WINDOW_WIDTH, height: WINDOW_WIDTH ,backgroundColor:'red'}}>
-          <Image
-            style={{flex: 1,width: WINDOW_WIDTH, height: WINDOW_WIDTH}}
-            resizeMode="contain"
-          />
-          //<View style={{backgroundColor:'#6C7A89',flex: 1}}/>
-          //<View style={{backgroundColor:'#019875',flex: 1}}/>
-          //<View style={{backgroundColor:'#E67E22',flex: 1}}/>
-        </Carousel>
-      );
-    }
+   
 
     _renderRow (rowData: string, sectionID: number, rowID: number, highlightRow: (sectionID: number, rowID: number) => void) {
        var imgSource = this.state.allPics[rowID];
@@ -274,7 +262,7 @@ save(){
     data.Subject=this.refs.Subject.value;
     data.Descriss=this.refs.described.value;
     data.imags=this.state.allPics;
-    this.props.addDetail.saveDetail.bind(this)(data);
+    
 }
 
   render() {
@@ -333,4 +321,4 @@ save(){
 }
 
 
-export const addDetailScreen
+  

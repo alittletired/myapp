@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {View, StyleSheet, Text, ListView, Dimensions, RefreshControl} from 'react-native';
 import ProblemList from '../components/ProblemList'
 import TabBar from '../components/TabBar'
-import {Scene, Router, TabBar, Modal, Schema, Actions, Reducer} from 'react-native-router-flux'
+import * as flux from 'react-native-router-flux'
 //import ScrollableTabView from 'react-native-scrollable-tab-view';
 import * as temp from './ListData0'
 
@@ -17,7 +17,8 @@ class Problem extends Component {
     }
 
     onItemPress(problem) {
-        Actions.ProblemDetials && Actions.ProblemDetials(problem)
+        flux.Actions.ProblemDetials({ problem });
+      //  Actions.ProblemDetials && Actions.ProblemDetials(problem)
     }
     onTabClick(newTab) {
 

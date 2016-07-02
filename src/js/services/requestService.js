@@ -4,7 +4,7 @@ import config from '../configs';
 import {serverURL} from '../env'
 let urlPrefix = serverURL;
 
-urlPrefix='http://10.5.101.47:3000'
+urlPrefix ='http://10.5.105.14:3000'
 function filterJSON(res) {
 	return res.json();
 }
