@@ -34,6 +34,7 @@
     "react-native-camera": "git+https://github.com/lwansbrough/react-native-camera.git",
     "react-native-checkbox": "^1.0.13",
     "react-native-code-push": "^1.12.2-beta",
+    "react-native-drawer": "^2.2.4",
     "react-native-icons": "^0.7.1",
     "react-native-image-picker": "^0.19.7",
     "react-native-linear-gradient": "^1.5.12",
