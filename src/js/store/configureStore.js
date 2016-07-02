@@ -4,9 +4,12 @@ import {AsyncStorage}  from 'react-native'
 import createLogger from 'redux-logger';
 import reducers from '../reducers';
 
+import { connect } from 'react-redux';
+
 import promiseMiddleware from './promiseMiddleware';
 import asyncActionCallbackMiddleware from './asyncActionCallbackMiddleware';
 var {persistStore, autoRehydrate} = require('redux-persist');
+
 
 let middlewares = [
     thunkMiddleware,
@@ -29,7 +32,7 @@ export default function configureStore(onComplete) {
    
     const store = autoRehydrate()(createMyStore)(reducers);
     persistStore(store, { storage: AsyncStorage }, onComplete);
-  // store = createMyStore(reducers);
+   //store = createMyStore(reducers);
     if (isDebuggingInChrome) {
         window.store = store;
     }

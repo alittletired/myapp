@@ -1,30 +1,13 @@
-﻿
+﻿import  {AppRegistry, Navigator, StyleSheet, Text, View} from 'react-native'
 import React, { Component } from 'react';
-import {
-    AppRegistry,
-    StyleSheet,
-    Text,
-    View
-} from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import connectComponent from '../utils/connectComponent';
 class Home extends Component {
-   
+    constructor(props) {
+        super(props);
 
-    render() {
-        
-        return (
-            <Icon.ToolbarAndroid
-                title="首页"
-                titleColor="white"
-                navIconName="md-arrow-back"
-                onIconClicked={() => { return true; }}
-                actions={[
-                    { title: 'Settings', iconName: 'md-settings', iconSize: 30, show: 'always' },
-                    { title: 'Follow me on Twitter', iconName: 'logo-twitter', iconColor: "#4099FF", show: 'ifRoom' },
-                ]}
-                overflowIconName="md-more"
-                />
-        );
+    } 
+    render() {        
+        return null;
     }
 }
 
@@ -46,9 +29,10 @@ const styles = StyleSheet.create({
         marginBottom: 5,
     },
 });
-export const LayoutComponent = Home;
-export function mapStateToProps(state) {
+ const LayoutComponent = Home;
+ function mapStateToProps(state) {
     return {
         user: state.user
     };
 }
+export default connectComponent({ LayoutComponent, mapStateToProps})

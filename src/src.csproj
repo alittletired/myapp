@@ -37,27 +37,38 @@
     <Content Include="index.android.js" />
     <Content Include="index.ios.js" />
     <Content Include="js\actions\index.js" />
+    <Content Include="js\actions\message.js" />
     <Content Include="js\actions\user.js" />
+    <Content Include="js\actions\more.js" />
     <Content Include="js\actions\navigation.js" />
     <Content Include="js\actions\problem.js" />
+    <Content Include="js\actions\quality.js" />
     <Content Include="js\actions\types.js" />
-
+    <Content Include="js\components\base\Button.js" />
+    <Content Include="js\components\base\CustomImage.js" />
+    <Content Include="js\components\base\Loading.js" />
+    <Content Include="js\components\base\Modal.js" />
+    <Content Include="js\components\base\OverlayButton.js" />
+    <Content Include="js\components\base\Row.js" />
+    <Content Include="js\components\base\Spinner.js" />
+    <Content Include="js\components\base\Toast.js" />
+    <Content Include="js\components\Header.js" />
     <Content Include="js\components\Navigation.js" />
     <Content Include="js\components\ProblemList.js" />
     <Content Include="js\components\TabBar.js" />
-    <Content Include="js\layouts\ListData.js" />
-
-    <Content Include="images\login_bg.jpg" />
-
+    <Content Include="js\components\TabIcon.js" />
+    <Content Include="js\layouts\addDetailScreen.js" />
+    <Content Include="js\layouts\img\login_bg.jpg" />
+    <Content Include="js\layouts\ListData1.js" />
     <Content Include="js\layouts\LoginScreen.js" />
     <Content Include="js\layouts\Problem.js" />
     <Content Include="js\layouts\ProblemDetials.js" />
     <Content Include="js\layouts\Setting.js" />
+    <Content Include="js\layouts\takePhoto.js" />
     <Content Include="js\MyApp.js" />
     <Content Include="js\configs\index.js" />
     <Content Include="js\layouts\Router.js" />
     <Content Include="js\configs\sceneConfig.js" />
-    <Content Include="js\constants\ActionTypes.js" />
     <Content Include="js\env.js" />
     <Content Include="js\index.js" />
     <Content Include="js\layouts\Home.js" />
@@ -65,6 +76,7 @@
     <Content Include="js\reducers\home.js" />
     <Content Include="js\reducers\index.js" />
     <Content Include="js\reducers\problem.js" />
+    <Content Include="js\reducers\routes.js" />
     <Content Include="js\reducers\user.js" />
     <Content Include="js\services\requestService.js" />
     <Content Include="js\services\userService.js" />
@@ -82,8 +94,7 @@
     <Content Include="tsconfig.json" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="js\components\base\" />
-    <Folder Include="js\images\" />
+    <Folder Include="images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

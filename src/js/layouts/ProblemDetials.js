@@ -1,6 +1,6 @@
 ﻿import React, {Component, PropTypes} from 'react';
 import {View, StyleSheet, Text, ListView, Dimensions, RefreshControl, Image } from 'react-native';
-import {problem} from './ListData'
+
 import Button from 'react-native-button';
 import Modal from 'react-native-modalbox';
 const {height, width} = Dimensions.get('window');
@@ -20,10 +20,8 @@ class ProblemDetials extends Component {
     _handlePass() {
 
         //逻辑
-        this.props.hasValiad = true;
         this.refs.modal.close();
         this.setState({
-            hasValiad: true
         });
     }
 
@@ -39,10 +37,9 @@ class ProblemDetials extends Component {
         this.props = Object.assign({}, this.props, {
             problem: problem,
             modalShow: false,
-            hasValiad:false
 
         });
-        if (!this.props.hasValiad) {
+        if (this.props.problem.status=="待整改") {
             return (
 
                 <View style={styles.container}>

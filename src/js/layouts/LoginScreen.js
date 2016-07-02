@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 var { connect } = require('react-redux');
 
+
 import  { 
   DeviceEventEmitter, 
   Dimensions,
@@ -17,6 +18,10 @@ import  {
   Platform
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import connectComponent from '../utils/connectComponent';
+
+
+const {height, width} = Dimensions.get('window');
 
 var animations = {
   layout: {
@@ -133,14 +138,13 @@ var styles = StyleSheet.create({
   },
   content: {
       flex: 1,
-      padding: 30,
       backgroundColor: 'transparent',
       borderRadius: 3,
       alignItems: 'center',
       // Image's source contains explicit size, but we want
-      // it to prefer flex: 1
-      width: undefined,
-      height: undefined,
+      // it to prefer flex: 1,
+      width: width,
+      height:height
   },
   formcontainer: {
   },
@@ -150,11 +154,13 @@ var styles = StyleSheet.create({
     alignSelf: 'center'
 	},
 	loginform: {
-		paddingHorizontal: 20,
+        paddingHorizontal: 20,
+        paddingTop:height/2-80,
     alignItems: 'stretch'
 	},
-	forminput: {
-    flex:1 ,
+    forminput: {
+        width: width - 40,
+        flex:1 ,
 		borderRadius: 4,
 		padding: 5,
 		marginBottom: 10,
@@ -166,10 +172,11 @@ var styles = StyleSheet.create({
 });
 
 
-export function mapStateToProps(state, props) {
+ function mapStateToProps(state, props) {
     var isLoggedIn = state.user.isLoggedIn;   
     return {
         isLoggedIn
     }
 }
-export const LayoutComponent=LoginScreen
+ const LayoutComponent = LoginScreen
+export default connectComponent({ LayoutComponent, mapStateToProps })

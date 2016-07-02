@@ -3,19 +3,13 @@ import {View, StyleSheet, Text, Image, ListView, TouchableHighlight, Dimensions,
 import moment from 'moment';
 import {parseImgUrl} from '../utils';
 
-
+import {Scene, Router, TabBar, Modal, Schema, Actions, Reducer} from 'react-native-router-flux'
 const {height, width} = Dimensions.get('window');
 
 
 
 class ProblemList extends Component {
-	/*static propTypes = {
-		data: PropTypes.array,
-		pending: PropTypes.bool,
-		getMessageList: PropTypes.func,
-		didFocus: PropTypes.bool
-	};
-*/
+	
     
 
 	constructor(props) {
@@ -60,10 +54,9 @@ class ProblemList extends Component {
        
     }
 
-	_onRowPress(problem) {
-        this.props.router.toProblemDetail({
-           problem:problem
-		});
+    _onRowPress(problem) {
+      //  Actions.
+       
 	}
 
 
@@ -163,8 +156,8 @@ class ProblemList extends Component {
 				removeClippedSubviews={true}
 				dataSource={this.state.ds}
 				renderRow={this._renderRow.bind(this)}
-				onEndReached ={this._loadMore.bind(this)}
-				onEndReachedThreshold={1}
+				//onEndReached ={this._loadMore.bind(this)}
+				//onEndReachedThreshold={1}
 				renderHeader={this._renderHeader.bind(this)}
                 refreshControl={
                     <RefreshControl
@@ -191,7 +184,7 @@ const styles = StyleSheet.create({
 		"height": 100,
 		"flexDirection": "row",
 		"borderBottomColor": "rgba(0, 0, 0, 0.02)",
-		"borderBottomWidth": 2,
+		"borderBottomWidth": 3,
 		"paddingTop": 20,
 		"paddingRight": 20,
 		"paddingBottom": 20,

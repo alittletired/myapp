@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
         marginTop: 3
     },
     topStyle: {
-        marginTop: 20
+        marginTop: 60
 
     }
     

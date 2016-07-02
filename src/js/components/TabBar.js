@@ -33,7 +33,7 @@ class TabBar extends Component {
 
 		return (
 			<TouchableOpacity key={name}
-              onPress={() => this.props.goToPage(name)}
+                onPress={() => this.props.onTabClick(page)}
        >
                 <View style={[styles.tab, tabStyle]}>
                     <Text style={[textStyle, this.props.tabTextStyle]}>
@@ -54,7 +54,7 @@ class TabBar extends Component {
             activeTabTextColor: '#00A0FF',
             normalTabTextColor: '#666666',
             tabStyle: 0,
-            tabs: ['全部', '未提交', '待整改', '待验证', '已验证'],
+            tabs: ['全部', '待整改' , '已验证'],
             tabTextStyle: {fontSize:16}
         };
         this.props = Object.assign({}, this.props, defaultProps)
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
 	tabs: {
 		height: 50 + 4,
 		flexDirection: 'row',
-		marginTop: 0,
+		marginTop: 50,
 		borderWidth: 1,
 		borderTopWidth: 0,
 		borderLeftWidth: 0,

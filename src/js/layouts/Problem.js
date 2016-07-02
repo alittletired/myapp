@@ -3,7 +3,7 @@ import {View, StyleSheet, Text, ListView, Dimensions, RefreshControl} from 'reac
 import ProblemList from '../components/ProblemList'
 import TabBar from '../components/TabBar'
 //import ScrollableTabView from 'react-native-scrollable-tab-view';
-//import {data} from './ListData'
+import * as temp from './ListData0'
 
 
 const {height, width} = Dimensions.get('window');
@@ -11,17 +11,24 @@ const {height, width} = Dimensions.get('window');
 class Problem extends Component {
     constructor(props) {
         super(props);
+       
+        this.state = { activeTab: 0, data: temp['data0']}
     }
 
 
+    onTabClick(newTab) {
 
+        this.setState({ activeTab: newTab, data: temp[newTab] })
+    }
     render() {
        
-        return (
+        
+        
+        return (    
 
             <View  style={styles.container}>
-                <TabBar {...this.props}  />
-                <ProblemList  {...this.props}/>
+                <TabBar { ...this.state}  onTabClick={this.onTabClick.bind(this) }  />
+                <ProblemList  { ...this.state} />
             </View>
 
         )
